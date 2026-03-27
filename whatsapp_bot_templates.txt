@@ -1,0 +1,23 @@
+==========================================
+WHATSAPP AUTO-REPLY BOT TEMPLATES
+==========================================
+Copy and paste these templates into your WhatsApp Business App's 'Quick Replies' or 'Auto-reply' settings.
+
+▶ GREETING MESSAGE (When a customer first sends their order details)
+--------------------------------------------------------------------
+Thank you for your order 🙏
+
+Your order has been received successfully.
+
+Our team will contact you soon for confirmation.
+
+Delivery time: 3–5 days 🚚
+
+
+▶ FOLLOW-UP MESSAGE (If the customer doesn't reply after some time)
+--------------------------------------------------------------------
+Hi 👋 just checking!
+
+Do you want to confirm your order?
+
+🔴 Limited stock available today.

@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    
+    <!-- Open Graph / SEO Meta Tags -->
+    <title>Sugar-Care Sanjivany | Premium Herbal Wellness</title>
+    <meta name="description" content="Discover the balance of our 100% natural, 17-herb botanical blend. Premium, holistic daily wellness support.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sugar-Care Sanjivany | Premium Herbal Wellness">
+    <meta property="og:description" content="Discover the balance of nature with our 100% natural, 17-herb botanical blend.">
+    <meta property="og:image" content="https://sugarcaresanjivani.in/preview.jpg"> <!-- TIP: Make sure you upload an image named preview.jpg to your hosting folder! -->
+    
+    <!-- Meta/Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // 👇 YOUR ACTION REQUIRED: Replace 'YOUR_PIXEL_ID_HERE' with your real 15-digit Facebook Ad Pixel ID!
+    fbq('init', 'YOUR_PIXEL_ID_HERE'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0&display=swap" rel="stylesheet" />
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6B8054",       // Soft sage/olive green from the image
+                        "on-primary": "#FFFFFF",
+                        "primary-dark": "#50623B",
+                        "secondary": "#A89269",     // Warm earthy tan/beige
+                        "background": "#F5F1E4",    // Warm paper background from the image
+                        "text-main": "#35402F",     // Dark olive text
+                        "text-light": "#606A57",
+                        "surface": "#EFE9D7"
+                    },
+                    fontFamily: {
+                        "serif": ["Playfair Display", "serif"],
+                        "sans": ["Inter", "sans-serif"],
+                        "body": ["Lora", "serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body { background-color: #F5F1E4; color: #35402F; }
+        
+        .watercolor-leaf {
+            position: absolute;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+            width: 400px;
+            max-width: 50vw;
+        }
+        
+        .corner-top-left { top: -20px; left: -20px; transform: scaleX(-1) rotate(15deg); }
+        .corner-top-right { top: -20px; right: -20px; transform: rotate(-15deg); }
+        .corner-mid-left { top: 40%; left: -30px; transform: scaleX(-1) scale(0.8); }
+        .corner-mid-right { top: 55%; right: -30px; transform: scale(0.8); }
+        .corner-bottom-left { bottom: 0; left: 0; transform: scaleY(-1) scaleX(-1); }
+        .corner-bottom-right { bottom: 0; right: 0; transform: scaleY(-1); }
+
+        .btn-green {
+            background-color: #6B8054;
+            color: #FFFFFF;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-green:hover { background-color: #50623B; transform: translateY(-2px); }
+        
+        .glass-panel {
+            background: rgba(239, 233, 215, 0.7); /* surface color with opacity */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(168, 146, 105, 0.15);
+        }
+        
+        @keyframes sway {
+            0% { transform: translateY(0) rotate(-2deg); }
+            100% { transform: translateY(-15px) rotate(4deg); }
+        }
+        
+        .flower-sway {
+            animation: sway 7s ease-in-out infinite alternate;
+        }
+        
+        .watercolor-blob {
+            position: absolute;
+            background: radial-gradient(circle, rgba(168,146,105,0.12) 0%, rgba(245,241,228,0) 70%);
+            width: 700px;
+            height: 700px;
+            top: 10%;
+            right: 5%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes drawGraph {
+            0% { stroke-dashoffset: 2000; opacity: 0; }
+            15% { opacity: 1; }
+            85% { stroke-dashoffset: 0; opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 0; }
+        }
+        .sugar-graph-line {
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: drawGraph 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+    </style>
+</head>
+
+<body class="font-body relative overflow-x-hidden min-h-screen">
+    
+    <!-- Language translation Google Widget Container -->
+    <div class="fixed top-4 right-4 z-[100] bg-white rounded-lg shadow-md overflow-hidden" id="google_translate_element"></div>
+
+    <!-- Painted Background Leaves to frame the page -->
+
+    <!-- Painted Background Leaves to frame the page -->
+    <div class="watercolor-blob"></div>
+    <svg class="watercolor-leaf corner-top-left" viewBox="0 0 200 200" fill="currentColor" style="color: #6B8054;">
+        <path d="M10,0 C30,50 80,100 150,120 C100,100 50,40 10,0 Z"/>
+        <path d="M0,30 C40,80 100,120 180,130 C120,100 60,50 0,30 Z" opacity="0.6"/>
+    </svg>
+    <svg class="watercolor-leaf corner-top-right" viewBox="0 0 200 200" fill="currentColor" style="color: #6B8054;">
+        <path d="M190,0 C170,50 120,100 50,120 C100,100 150,40 190,0 Z"/>
+        <path d="M200,30 C160,80 100,120 20,130 C80,100 140,50 200,30 Z" opacity="0.6"/>
+    </svg>
+    <svg class="watercolor-leaf corner-mid-left" viewBox="0 0 200 200" fill="currentColor" style="color: #A89269;">
+        <path d="M0,100 C60,90 120,120 180,180 C120,150 50,130 0,100 Z"/>
+        <path d="M0,130 C50,110 100,130 160,200 C100,170 40,150 0,130 Z" opacity="0.5"/>
+    </svg>
+    <svg class="watercolor-leaf corner-mid-right" viewBox="0 0 200 200" fill="currentColor" style="color: #6B8054;">
+        <path d="M200,100 C140,90 80,120 20,180 C80,150 150,130 200,100 Z"/>
+    </svg>
+
+    <!-- Top Navigation -->
+    <nav class="relative z-50 w-full pt-8 pb-4">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            
+            <!-- Logo area -->
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                <div class="flex flex-col text-left">
+                    <span class="font-serif text-xl md:text-2xl leading-tight text-text-main">SUGAR-CARE</span>
+                    <span class="font-serif text-xl md:text-2xl leading-tight text-text-main flex items-center">
+                        SANJIVANY 
+                        <span class="material-symbols-outlined text-primary text-xl ml-1" style="font-variation-settings: 'FILL' 1;">energy_savings_leaf</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Links (Center) -->
+            <div class="hidden lg:flex items-center space-x-10 font-sans text-[11px] md:text-xs tracking-[0.15em] font-medium text-text-light uppercase">
+                <a href="#benefits" class="hover:text-primary transition-colors hover:scale-105 transform">Benefits</a>
+                <a href="#ingredients" class="hover:text-primary transition-colors hover:scale-105 transform">Ingredients</a>
+                <a href="#pricing" class="hover:text-primary transition-colors hover:scale-105 transform">Pricing</a>
+                <a href="#order" class="text-primary font-bold border-b border-primary pb-0.5">Order Now</a>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center space-x-6">
+                <button class="hidden md:block btn-green px-5 py-2.5 rounded text-xs tracking-widest uppercase font-semibold font-sans shadow-sm" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})"
+                        data-en="SHOP NOW"
+                        data-hi="अभी खरीदें"
+                        data-bn="এখনই কিনুন"
+                        data-mr="आता खरेदी करा"
+                        data-te="ఇప్పుడే కొనండి"
+                        data-ta="இப்போது வாங்க">
+                    SHOP NOW
+                </button>
+                <button class="text-text-main hover:text-primary transition-colors cursor-pointer" onclick="document.getElementById('order').scrollIntoView({behavior: 'smooth'})">
+                    <span class="material-symbols-outlined text-[26px]">person</span>
+                </button>
+                <div class="relative text-text-main hover:text-primary transition-colors cursor-pointer" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
+                    <span class="material-symbols-outlined text-[26px]">shopping_cart</span>
+                    <span class="absolute -top-1 -right-1 bg-secondary text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">0</span>
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative z-10 w-full pt-10 pb-20">
+        <div class="max-w-[1200px] mx-auto px-6 text-center">
+            <!-- Hero Typography -->
+            <h1 class="font-serif text-6xl md:text-7xl lg:text-[85px] text-text-main font-normal tracking-tight mb-6 leading-none">
+                Sugar-Care <br class="md:hidden" /> Sanjivany
+            </h1>
+            
+            <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-text-main font-bold mb-6 max-w-4xl mx-auto leading-tight">
+                17 Herbal Ingredients for Daily Wellness Support
+            </h2>
+            
+            <!-- Above-The-Fold Trust Strip -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 font-sans text-[11px] md:text-sm font-bold text-text-main border border-secondary/20 bg-surface/80 backdrop-blur-md py-3.5 px-6 rounded-[2rem] inline-flex mx-auto shadow-sm">
+                <span class="flex items-center gap-1.5 whitespace-nowrap"><span class="text-yellow-500 text-lg">⭐</span> 4.8 Rating | 1,200+ Customers</span>
+                <span class="hidden sm:block opacity-30">|</span>
+                <span class="flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">eco</span> Herbal blend</span>
+                <span class="hidden sm:block opacity-30">|</span>
+                <span class="flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span> COD & UPI Available</span>
+            </div>
+
+            <div class="w-full flex justify-center mb-16">
+                <button class="btn-green px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-bold font-sans shadow-xl hover:-translate-y-1 transition-transform" onclick="document.getElementById('ingredients').scrollIntoView({behavior: 'smooth'})">
+                    EXPLORE THE SANJIVANY
+                </button>
+            </div>
+            
+            <!-- Hero Composition (Bottle & Botanicals) -->
+            <div class="relative w-full max-w-4xl mx-auto flex items-center justify-center h-[350px] md:h-[500px]">
+                
+                <!-- Botanical Ingredients (Floating independently) -->
+                <!-- Left Wood/Herbs -->
+                <div class="hidden md:flex absolute left-8 bottom-16 flex-col items-center flower-sway z-30">
+                    <img class="w-24 h-24 object-contain opacity-90 drop-shadow-lg" alt="Cinnamon Herbs" src="https://api.iconify.design/noto:wood.svg" />
+                    <img class="w-16 h-16 object-contain -mt-4 opacity-90 drop-shadow-lg" alt="Mustard Seeds" src="https://api.iconify.design/noto:sheaf-of-rice.svg" />
+                </div>
+                
+                <!-- Right Fresh Herb -->
+                <div class="hidden md:flex absolute right-16 top-10 flex-col items-center flower-sway z-30" style="animation-delay: -2s;">
+                    <span class="material-symbols-outlined text-[90px] text-primary rotate-12 opacity-80 drop-shadow-md" style="font-variation-settings: 'FILL' 1;">energy_savings_leaf</span>
+                </div>
+
+                <!-- Bottle -->
+                <div class="relative z-20 h-full flex items-center justify-center">
+                    <div class="absolute w-[250px] md:w-[350px] h-[250px] md:h-[350px] bg-[#EFE9D7] rounded-full blur-3xl opacity-50 z-10"></div>
+                    <img src="./src/product.jpg" alt="Sugar-Care Sanjivany Bottle" class="h-[90%] md:h-[110%] w-auto object-contain relative z-20 drop-shadow-2xl rounded-[3rem] border-8 border-surface mix-blend-multiply md:mix-blend-normal" />
+                </div>
+
+                <!-- Callout Floating Text Box (Right side floating) -->
+                <div class="hidden lg:block absolute right-0 bottom-1/4 max-w-[220px] text-left z-30 glass-panel p-5 rounded-2xl">
+                    <span class="material-symbols-outlined text-secondary text-3xl mb-2 rotate-[-20deg]" style="font-variation-settings: 'FILL' 1;">eco</span>
+                    <p class="font-serif text-lg text-text-main leading-snug italic">
+                        A Potent Blend of Ancient Herbs for Holistic Glycemic Harmony.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Cash On Delivery Banner -->
+            <div class="mt-8 md:mt-12 flex justify-center w-full animate-fade-in relative z-40">
+                <div class="bg-white/60 backdrop-blur-md border border-secondary/30 py-3 px-8 rounded-full inline-flex items-center gap-3 shadow-[0_8px_16px_rgba(107,128,84,0.1)] cursor-pointer hover:bg-white/90 transition-colors" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
+                    <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                    <span class="font-sans text-xs md:text-sm tracking-[0.15em] font-extrabold text-[#252824] uppercase">Cash on Delivery Available</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="w-full max-w-[1200px] mx-auto h-[1px] bg-secondary opacity-20 my-8"></div>
+
+    <!-- Benefits Section properly restored -->
+    <section class="py-16 md:py-24 relative z-10" id="benefits">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col items-center text-center mb-16">
+                <span class="font-sans uppercase tracking-[0.2em] text-secondary font-bold text-xs mb-2 block">Holistic Wellness</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-text-main mb-6">Experience Natural Transformation</h2>
+                <div class="h-0.5 w-16 bg-secondary mb-6 mx-auto opacity-50"></div>
+                <p class="text-text-light max-w-2xl text-base md:text-lg font-body">Daily supplementation helps restore harmony to your metabolic processes, providing sustained energy and balance rooted in ancient wisdom.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                <div class="p-8 lg:p-10 rounded-3xl bg-surface border border-secondary/10 hover:border-secondary/40 transition-all shadow-sm group text-center lg:text-left">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 mx-auto lg:mx-0 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-serif font-bold text-text-main mb-4">Metabolic Balance</h3>
+                    <p class="text-text-light leading-relaxed font-body text-sm lg:text-base">Supports overall wellness and optimizes your body's natural processing of nutrients using gentle herbal properties.</p>
+                </div>
+                <div class="p-8 lg:p-10 rounded-3xl bg-surface border border-secondary/10 hover:border-secondary/40 transition-all shadow-sm group text-center lg:text-left">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 mx-auto lg:mx-0 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-serif font-bold text-text-main mb-4">Sustained Energy</h3>
+                    <p class="text-text-light leading-relaxed font-body text-sm lg:text-base">Experience a constant flow of natural energy throughout the day without the crashes or jitters typical of artificial stimulants.</p>
+                </div>
+                <div class="p-8 lg:p-10 rounded-3xl bg-surface border border-secondary/10 hover:border-secondary/40 transition-all shadow-sm group text-center lg:text-left">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 mx-auto lg:mx-0 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">spa</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-serif font-bold text-text-main mb-4">Stress Harmony</h3>
+                    <p class="text-text-light leading-relaxed font-body text-sm lg:text-base">Adaptogenic herbs help your body manage modern stressors, promoting a calm, focused, and centered mindset naturally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full max-w-[1200px] mx-auto h-[1px] bg-secondary opacity-20 my-8 shadow-sm"></div>
+
+    <!-- How It Works Section -->
+    <section class="py-16 md:py-20 relative z-10 bg-surface/50 border-y border-secondary/10">
+        <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-text-main mb-12 uppercase tracking-widest">How It Works</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-[50px] left-[15%] right-[15%] h-[2px] bg-secondary/20 border-dashed border-t-2 z-0"></div>
+
+                <div class="relative z-10 flex flex-col items-center group">
+                    <div class="w-24 h-24 rounded-full bg-surface border-2 border-primary flex items-center justify-center text-3xl font-serif font-bold text-primary mb-6 shadow-md group-hover:bg-primary group-hover:text-white transition-colors duration-300">1</div>
+                    <h3 class="font-sans font-bold tracking-widest uppercase text-text-main text-sm mb-3">Daily Use</h3>
+                    <p class="font-body text-text-light text-sm max-w-[250px]">Take regularly as a dedicated part of your daily holistic routine.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center group">
+                    <div class="w-24 h-24 rounded-full bg-surface border-2 border-primary flex items-center justify-center text-3xl font-serif font-bold text-primary mb-6 shadow-md group-hover:bg-primary group-hover:text-white transition-colors duration-300">2</div>
+                    <h3 class="font-sans font-bold tracking-widest uppercase text-text-main text-sm mb-3">Herbal Support</h3>
+                    <p class="font-body text-text-light text-sm max-w-[250px]">Experience the unified power of our 17 ancient natural ingredients.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center group">
+                    <div class="w-24 h-24 rounded-full bg-surface border-2 border-primary flex items-center justify-center text-3xl font-serif font-bold text-primary mb-6 shadow-md group-hover:bg-primary group-hover:text-white transition-colors duration-300">3</div>
+                    <h3 class="font-sans font-bold tracking-widest uppercase text-text-main text-sm mb-3">Stay Consistent</h3>
+                    <p class="font-body text-text-light text-sm max-w-[250px]">Maintain a naturally balanced and healthy lifestyle effortlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full max-w-[1200px] mx-auto h-[1px] bg-secondary opacity-20 my-8 shadow-sm"></div>
+
+    <!-- Harmony & Discover Section (Lower Split) -->
+    <section class="relative z-10 w-full py-16" id="ingredients">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            
+            <!-- Left: Harmony Card (Gudmar & Jamun) -->
+            <div>
+                <h3 class="font-serif text-2xl md:text-3xl lg:text-[28px] text-text-main uppercase tracking-widest mb-8 text-center md:text-left">
+                    The Harmony Of Herbs
+                </h3>
+                <!-- Inner Light Beige Card - 17 Ingredients List -->
+                <div class="bg-surface rounded-2xl p-6 flex flex-col border border-secondary border-opacity-30 shadow-sm relative overflow-hidden group w-full">
+                    <div class="absolute inset-0 bg-white opacity-40"></div>
+                    
+                    <div class="relative z-10 w-full h-full space-y-3">
+                        
+                        <!-- 1. Gudmar -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">spa</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">1. Gudmar</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Supports overall wellness & curbs cravings</p>
+                            </div>
+                        </div>
+
+                        <!-- 2. Jamun -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">nutrition</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">2. Jamun</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Helps maintain a balanced lifestyle</p>
+                            </div>
+                        </div>
+
+                        <!-- 3. Karela -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">3. Karela</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Traditional herbal blend for daily health to act naturally in the body</p>
+                            </div>
+                        </div>
+
+                        <!-- 4. Amla -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">energy_savings_leaf</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">4. Amla</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Antioxidant-rich cellular immunity booster</p>
+                            </div>
+                        </div>
+
+                        <!-- 5. Giloy -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">compost</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">5. Giloy</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Metabolic harmony and deep systemic detoxifier</p>
+                            </div>
+                        </div>
+
+                        <!-- 6. Ashwagandha -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">6. Ashwagandha</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Stress-reducing adaptogen for total mind-body rhythm</p>
+                            </div>
+                        </div>
+
+                        <!-- 7. Neem -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">grass</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">7. Neem</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Purifies the blood flow and enhances inner radiance</p>
+                            </div>
+                        </div>
+
+                        <!-- 8. Tulsi (Holy Basil) -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">local_florist</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">8. Tulsi</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Sacred anti-inflammatory organ protection</p>
+                            </div>
+                        </div>
+
+                        <!-- 9. Haldi (Turmeric) -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">emoji_nature</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">9. Haldi</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Golden spice supporting joint and cellular integrity</p>
+                            </div>
+                        </div>
+
+                        <!-- 10. Vijaysar -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">forest</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">10. Vijaysar</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Traditional Indian Kino for sustained daily health</p>
+                            </div>
+                        </div>
+
+                        <!-- 11. Shilajit -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">terrain</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">11. Shilajit</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Unleashes cellular stamina, vitality & trace minerals</p>
+                            </div>
+                        </div>
+
+                        <!-- 12. Methi (Fenugreek) -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">grain</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">12. Methi</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Slows down carbohydrate absorption in the gut</p>
+                            </div>
+                        </div>
+
+                        <!-- 13. Bael / Bilva -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">nature</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">13. Bael</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Improves complex digestion & foundational gut flora</p>
+                            </div>
+                        </div>
+
+                        <!-- 14. Haritaki -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">14. Haritaki</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Supports deep biological cleansing and mental clarity</p>
+                            </div>
+                        </div>
+
+                        <!-- 15. Baheda -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">air</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">15. Baheda</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Essential respiratory and soft-tissue metabolic care</p>
+                            </div>
+                        </div>
+
+                        <!-- 16. Dalchini (Cinnamon) -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">park</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">16. Dalchini</h4>
+                                <p class="font-body text-xs text-text-light leading-snug">Premium spice supporting overall wellness</p>
+                            </div>
+                        </div>
+
+                        <!-- 17. Triphala -->
+                        <div class="flex items-start gap-3 p-3 rounded-xl bg-white/40 border border-secondary/10 hover:bg-white/80 transition-all cursor-default hover:bg-primary-container group">
+                            <span class="material-symbols-outlined text-[28px] text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+                            <div>
+                                <h4 class="font-sans text-[11px] font-bold text-text-main uppercase tracking-widest mb-0.5">17. Triphala</h4>
+                                <p class="font-body text-xs text-text-light leading-snug group-hover:text-primary-dark">Comprehensive tri-herbal systemic rejuvenation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center pt-2 pb-1 opacity-50 flex items-center justify-center space-x-2">
+                            <span class="w-12 h-[1px] bg-text-light"></span>
+                            <span class="material-symbols-outlined animate-bounce text-text-main text-sm">keyboard_arrow_down</span>
+                            <span class="w-12 h-[1px] bg-text-light"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right: Discover Info -->
+            <div class="flex flex-col justify-center">
+                <h3 class="font-serif text-2xl md:text-[28px] text-text-main uppercase tracking-widest mb-6 border-b border-secondary border-opacity-30 pb-4 inline-block">
+                    Discover The Power Of Sanjivany
+                </h3>
+                <p class="font-body text-base lg:text-[17px] text-text-light leading-[1.8] mb-10">
+                    Nurture your body with nature's wisdom. This botanical blend helps maintain a balanced lifestyle, weaving ancient holistic traditions with modern purity to bring balanced inner harmony and wellness to your daily rhythm.
+                </p>
+                
+                <h4 class="font-sans text-xs font-bold tracking-widest uppercase text-text-main mb-6">Why Choose Us?</h4>
+                
+                <!-- Bullet Points Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 mb-10">
+                    <div class="flex items-center text-text-main font-body text-base">
+                        <span class="material-symbols-outlined text-sm text-secondary mr-3" style="font-variation-settings: 'FILL' 1;">check_circle</span> Organic Ingredients
+                    </div>
+                    <div class="flex items-center text-text-main font-body text-base">
+                        <span class="material-symbols-outlined text-sm text-secondary mr-3" style="font-variation-settings: 'FILL' 1;">check_circle</span> Botanical Formula
+                    </div>
+                    <div class="flex items-center text-text-main font-body text-base">
+                        <span class="material-symbols-outlined text-sm text-secondary mr-3" style="font-variation-settings: 'FILL' 1;">check_circle</span> Herbal Formula
+                    </div>
+                    <div class="flex items-center text-text-main font-body text-base">
+                        <span class="material-symbols-outlined text-sm text-secondary mr-3" style="font-variation-settings: 'FILL' 1;">check_circle</span> Third-Party Tested
+                    </div>
+                    <div class="flex items-center text-text-main font-body text-base">
+                        <span class="material-symbols-outlined text-sm text-secondary mr-3" style="font-variation-settings: 'FILL' 1;">check_circle</span> Vegan & Gluten-Free
+                    </div>
+                </div>
+                
+                <div>
+                    <button class="btn-green px-8 py-3.5 rounded text-xs tracking-widest uppercase font-semibold font-sans shadow-sm" onclick="document.getElementById('pricing').scrollIntoView()">
+                        VIEW PRICING
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section class="py-20 relative z-10 bg-background" id="our-story">
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+            <div class="bg-surface border border-secondary/20 rounded-[2.5rem] p-10 md:p-16 shadow-lg relative overflow-hidden transition-all hover:shadow-xl">
+                <div class="absolute top-0 right-0 opacity-5 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+                    <span class="material-symbols-outlined text-[300px] text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+                </div>
+                
+                <span class="font-sans text-xs tracking-[0.2em] font-bold text-secondary uppercase block mb-4 text-center">The Story Behind Sanjivany</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-text-main mb-12 uppercase tracking-widest leading-snug">Why We Created This</h2>
+                
+                <div class="space-y-8 font-body text-text-main text-base md:text-lg leading-relaxed relative z-10">
+                    <div>
+                        <h4 class="font-serif text-xl font-bold flex items-center gap-2 mb-3 text-red-800"><span class="material-symbols-outlined text-red-500" style="font-variation-settings: 'FILL' 1;">favorite</span> A Story From 2016</h4>
+                        <p>In 2016, my grandmother was scheduled for critical heart surgery. But just before the operation, doctors told us something unexpected — her overall wellness needed to be stable first.</p>
+                        <p class="mt-4 italic opacity-80 border-l-2 border-secondary/40 pl-4 py-1">We had to wait. Those days were filled with stress and uncertainty.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-serif text-xl font-bold flex items-center gap-2 mb-3 text-primary-dark"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">spa</span> What We Did</h4>
+                        <p>During that time, we focused on improving her overall routine — including diet, care, and adding this specialized botanical blend as part of her daily support.</p>
+                        <p class="mt-4">Over the next couple of months, her reports gradually, naturally improved.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-serif text-xl font-bold flex items-center gap-2 mb-3 text-green-800"><span class="material-symbols-outlined text-green-600" style="font-variation-settings: 'FILL' 1;">check_circle</span> The Moment We Were Waiting For</h4>
+                        <p>Eventually, her condition became stable enough for doctors to successfully move forward with the surgery.</p>
+                        <p class="mt-8 font-serif text-lg md:text-xl italic text-primary-dark text-center py-5 border-y border-secondary/20">"That true moment of stability gave us hope again. We want to share that exact same hope with you."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meta-Safe Testimonials Section -->
+    <section class="py-16 relative z-10 bg-surface/30">
+        <div class="max-w-[1200px] mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-text-main mb-4 uppercase tracking-widest">Real Results. Natural Support.</h2>
+            <p class="font-body text-text-light max-w-2xl mx-auto mb-12 italic">Join over 1,200+ individuals who have embraced holistic daily wellness.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-secondary/10 text-left hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center gap-1 text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <h4 class="font-bold text-lg font-serif text-text-main mb-2">"More energetic and balanced"</h4>
+                    <p class="text-sm font-body text-text-light mb-6 leading-relaxed">"Instead of promising miracles, this simply gives my body the herbal support it needs. I feel a much more steady stream of energy throughout my entire day without any crashes."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary font-serif">A</div>
+                        <div>
+                            <p class="font-bold text-sm text-text-main">Amit M.</p>
+                            <p class="text-[10px] uppercase tracking-widest text-[#252824] font-bold font-sans flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-green-600" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-secondary/10 text-left hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center gap-1 text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <h4 class="font-bold text-lg font-serif text-text-main mb-2">"Perfect addition to my routine"</h4>
+                    <p class="text-sm font-body text-text-light mb-6 leading-relaxed">"As part of my clean diet, this botanical blend is fantastic. It's gentle, easy to take, and I love that it uses the traditional herbal ingredients my grandmother taught me about."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary font-serif">S</div>
+                        <div>
+                            <p class="font-bold text-sm text-text-main">Sunita R.</p>
+                            <p class="text-[10px] uppercase tracking-widest text-[#252824] font-bold font-sans flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-green-600" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-secondary/10 text-left hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center gap-1 text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <h4 class="font-bold text-lg font-serif text-text-main mb-2">"Quality you can trust"</h4>
+                    <p class="text-sm font-body text-text-light mb-6 leading-relaxed">"I have tried many botanical supplements, but Sugar-Care Sanjivany feels truly premium. The delivery was exactly 3 days on COD as promised, and standardizing my wellness routine has been great."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary font-serif">R</div>
+                        <div>
+                            <p class="font-bold text-sm text-text-main">Rahul V.</p>
+                            <p class="text-[10px] uppercase tracking-widest text-[#252824] font-bold font-sans flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-green-600" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section (Separated clean horizontal layout) -->
+    <section class="relative z-10 w-full py-16 bg-surface mt-10" id="pricing">
+        <div class="max-w-[1200px] mx-auto px-6 text-center">
+
+            <!-- Us vs Them Comparison Table (Psychological Contrast Principle) -->
+            <div class="max-w-4xl mx-auto mb-20 animate-fade-in relative z-20">
+                <h3 class="font-serif text-3xl md:text-4xl text-center text-text-main uppercase tracking-widest mb-10">The Clear Choice</h3>
+                <div class="bg-white rounded-[2rem] shadow-md border border-secondary/20 overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-surface/50 font-sans text-[10px] md:text-xs tracking-widest uppercase text-text-light border-b border-secondary/20">
+                                <th class="p-5 md:p-6 w-1/3 font-bold">Features</th>
+                                <th class="p-5 md:p-6 w-1/3 bg-primary/10 text-primary-dark font-bold text-center border-x border-primary/20 leading-snug">Sugar-Care<br>Sanjivany</th>
+                                <th class="p-5 md:p-6 w-1/3 text-center font-bold text-[#8A8F82] leading-snug">Standard<br>Supplements</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-body text-[13px] md:text-base">
+                            <tr class="border-b border-secondary/10 hover:bg-surface/30 transition-colors group">
+                                <td class="p-5 md:p-6 font-semibold text-text-main">Herbal Formulation</td>
+                                <td class="bg-primary/5 border-x border-primary/10 text-center align-middle p-0">
+                                    <div class="flex flex-col items-center justify-center p-5 md:p-6 text-primary-dark font-bold h-full">
+                                        <span class="material-symbols-outlined mb-1 md:mb-2 text-[24px] md:text-[28px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        <span>Yes (17 Herbs)</span>
+                                    </div>
+                                </td>
+                                <td class="p-5 md:p-6 text-center text-[#8A8F82]"><span class="material-symbols-outlined text-red-500/60 align-middle mr-1" style="font-variation-settings: 'FILL' 1;">cancel</span> Often Synthetic</td>
+                            </tr>
+                            <tr class="border-b border-secondary/10 hover:bg-surface/30 transition-colors group">
+                                <td class="p-5 md:p-6 font-semibold text-text-main">Herbal & Gentle</td>
+                                <td class="bg-primary/5 border-x border-primary/10 text-center align-middle p-0">
+                                    <div class="flex flex-col items-center justify-center p-5 md:p-6 text-green-700 font-bold h-full">
+                                        <span class="material-symbols-outlined mb-1 md:mb-2 text-[24px] md:text-[28px] group-hover:scale-110 transition-transform text-green-600" style="font-variation-settings: 'FILL' 1;">eco</span>
+                                        <span>Natural Formula</span>
+                                    </div>
+                                </td>
+                                <td class="p-5 md:p-6 text-center text-[#8A8F82]"><span class="material-symbols-outlined text-orange-400 align-middle mr-1" style="font-variation-settings: 'FILL' 1;">warning</span> Harsh compounds</td>
+                            </tr>
+                            <tr class="border-b border-secondary/10 hover:bg-surface/30 transition-colors group">
+                                <td class="p-5 md:p-6 font-semibold text-text-main">Holistic Body Support</td>
+                                <td class="bg-primary/5 border-x border-primary/10 text-center align-middle p-0">
+                                    <div class="flex flex-col items-center justify-center p-5 md:p-6 text-primary-dark font-bold h-full">
+                                        <span class="material-symbols-outlined mb-1 md:mb-2 text-[24px] md:text-[28px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        <span>Digests & Balances</span>
+                                    </div>
+                                </td>
+                                <td class="p-5 md:p-6 text-center text-[#8A8F82]"><span class="material-symbols-outlined text-red-500/60 align-middle mr-1" style="font-variation-settings: 'FILL' 1;">cancel</span> Single-Focus Only</td>
+                            </tr>
+                            <tr class="hover:bg-surface/30 transition-colors group">
+                                <td class="p-5 md:p-6 font-semibold text-text-main">Commitment</td>
+                                <td class="bg-primary/5 border-x border-primary/10 text-center align-middle p-0 rounded-br-lg">
+                                    <div class="flex flex-col items-center justify-center p-5 md:p-6 text-primary-dark font-bold h-full">
+                                        <span class="material-symbols-outlined mb-1 md:mb-2 text-[24px] md:text-[28px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+                                        <span>Satisfaction Promise</span>
+                                    </div>
+                                </td>
+                                <td class="p-5 md:p-6 text-center text-[#8A8F82]"><span class="material-symbols-outlined text-red-500/60 align-middle mr-1" style="font-variation-settings: 'FILL' 1;">cancel</span> No Promise</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Daily Cost Psychological Anchor -->
+                <div class="mt-8 text-left md:text-center flex flex-col items-center bg-green-50/50 border border-green-200/60 p-6 md:p-8 rounded-[2rem] relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <div class="absolute right-0 top-0 opacity-[0.03] pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+                        <span class="material-symbols-outlined text-[200px] text-green-700" style="font-variation-settings: 'FILL' 1;">payments</span>
+                    </div>
+                    <p class="font-serif text-lg md:text-2xl text-text-main relative z-10 leading-relaxed md:leading-snug">Investing in your daily wellness costs just <br class="md:hidden" /><span class="text-primary font-bold text-xl md:text-3xl inline-block mt-2 md:mt-0 md:ml-3 bg-white px-5 py-2 rounded-xl border border-primary/20 shadow-sm animate-pulse">₹13.3 per day</span></p>
+                    <p class="font-sans text-[10px] md:text-xs uppercase tracking-[0.15em] font-bold text-text-light mt-5 md:mt-6 relative z-10 w-full flex items-center justify-center gap-3">
+                        <span class="w-10 h-[1px] bg-secondary/30 hidden md:block"></span> 
+                        That is literally less than a cup of street tea 
+                        <span class="w-10 h-[1px] bg-secondary/30 hidden md:block"></span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Meta-Safe Guarantee Badge -->
+            <div class="inline-flex items-center gap-3 bg-white border border-secondary/20 px-6 py-3 rounded-full shadow-sm mb-10 w-full md:w-auto text-left md:text-center justify-center animate-fade-in mx-auto">
+                <span class="material-symbols-outlined text-green-600 text-3xl" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+                <span class="font-sans text-xs md:text-sm font-bold text-text-main tracking-wide uppercase">100% Satisfaction Guarantee <br class="md:hidden" /><span class="hidden md:inline">|</span> Premium Herbal Blend</span>
+            </div>
+
+            <span class="font-sans text-xs tracking-[0.2em] font-bold text-secondary uppercase block mb-3">Holistic Investment</span>
+            <h3 class="font-serif text-3xl md:text-4xl text-text-main uppercase tracking-widest mb-12"
+                data-en="Choose Your Course"
+                data-hi="अपना पैक चुनें"
+                data-bn="আপনার প্যাক নির্বাচন করুন"
+                data-mr="आपला पॅक निवडा"
+                data-te="మీ ప్యాక్ ఎంచుకోండి"
+                data-ta="உங்கள் பாக்கை தேர்வு செய்யுங்கள்">
+                Choose Your Course
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto items-center">
+                <!-- 1 Bottle -->
+                <div class="bg-background border border-secondary/20 p-8 rounded-2xl flex flex-col items-center shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="setSelectedPackage(1, 499)">
+                    <div class="w-16 h-16 rounded-full bg-surface flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+                    </div>
+                    <h4 class="font-sans text-sm font-bold tracking-widest uppercase text-text-main mb-2">1 Bottle</h4>
+                    <p class="font-body text-xs text-text-light mb-6 opacity-80 italic">1 Month Supply</p>
+                    <p class="font-serif text-3xl text-primary font-bold mb-6">₹499</p>
+                    <button class="w-full py-3 border border-primary text-primary font-sans text-xs tracking-widest uppercase font-bold rounded hover:bg-primary hover:text-white transition-colors">
+                        SELECT
+                    </button>
+                </div>
+                
+                <!-- 3 Bottles (Best Value / Highlighted) -->
+                <div class="bg-primary text-on-primary p-10 rounded-2xl flex flex-col items-center shadow-xl transform md:scale-105 cursor-pointer relative z-10" onclick="setSelectedPackage(3, 1199)">
+                    <div class="absolute -top-4 bg-secondary text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-sm">Popular Value</div>
+                    <div class="w-16 h-16 rounded-full bg-primary-dark flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl text-white" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                    </div>
+                    <h4 class="font-sans text-sm font-bold tracking-widest uppercase mb-2">3 Bottles</h4>
+                    <p class="font-body text-xs text-white/80 mb-6 italic">3 Month Supply</p>
+                    <p class="font-serif text-4xl font-bold mb-6">₹1199</p>
+                    <button class="w-full py-3 bg-white text-primary font-sans text-xs tracking-widest uppercase font-bold rounded hover:bg-surface transition-colors">
+                        SELECT BEST VALUE
+                    </button>
+                </div>
+
+                <!-- 2 Bottles -->
+                <div class="bg-background border border-secondary/20 p-8 rounded-2xl flex flex-col items-center shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="setSelectedPackage(2, 899)">
+                    <div class="w-16 h-16 rounded-full bg-surface flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">spa</span>
+                    </div>
+                    <h4 class="font-sans text-sm font-bold tracking-widest uppercase text-text-main mb-2">2 Bottles</h4>
+                    <p class="font-body text-xs text-text-light mb-6 opacity-80 italic">2 Month Supply</p>
+                    <p class="font-serif text-3xl text-primary font-bold mb-6">₹899</p>
+                    <button class="w-full py-3 border border-primary text-primary font-sans text-xs tracking-widest uppercase font-bold rounded hover:bg-primary hover:text-white transition-colors">
+                        SELECT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 relative z-10 bg-background border-t border-secondary/10" id="faq">
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+            <h2 class="text-2xl md:text-3xl font-serif font-bold text-center text-text-main mb-12 uppercase tracking-widest">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4 font-sans">
+                <!-- FAQ 1 -->
+                <div class="bg-surface border border-secondary/20 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="font-bold text-text-main text-sm md:text-base tracking-wide flex items-center gap-3 mb-2">
+                        <span class="material-symbols-outlined text-primary bg-primary/10 rounded-full p-2" style="font-variation-settings: 'FILL' 1;">help</span>
+                        Is this safe to use?
+                    </h3>
+                    <p class="font-body text-text-light text-sm md:text-base pl-12 leading-relaxed">This is a completely herbal wellness product. For best results, follow a healthy routine.</p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-surface border border-secondary/20 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="font-bold text-text-main text-sm md:text-base tracking-wide flex items-center gap-3 mb-2">
+                        <span class="material-symbols-outlined text-primary bg-primary/10 rounded-full p-2" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                        How long does delivery take?
+                    </h3>
+                    <p class="font-body text-text-light text-sm md:text-base pl-12 leading-relaxed">We ship rapidly. 3–5 days across India.</p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-surface border border-secondary/20 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="font-bold text-text-main text-sm md:text-base tracking-wide flex items-center gap-3 mb-2">
+                        <span class="material-symbols-outlined text-primary bg-primary/10 rounded-full p-2" style="font-variation-settings: 'FILL' 1;">payments</span>
+                        Is COD available?
+                    </h3>
+                    <p class="font-body text-text-light text-sm md:text-base pl-12 leading-relaxed">Yes, Cash on Delivery is available directly through our checkout form.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Details Form Section -->
+    <section class="relative z-10 w-full py-20 bg-[#eceadd]" id="order">
+        <!-- SVG Corner Leaves (Bottom) -->
+        <svg class="watercolor-leaf corner-bottom-left" viewBox="0 0 200 200" fill="currentColor" style="color: #6B8054; opacity: 0.1;">
+            <path d="M10,0 C30,50 80,100 150,120 C100,100 50,40 10,0 Z"/>
+        </svg>
+
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+            <h3 class="font-serif text-3xl md:text-4xl text-text-main uppercase tracking-widest mb-4 text-center">Secure Your Order</h3>
+            <p class="font-body text-base md:text-lg text-text-light text-center italic mb-8">Submit your details to experience the natural balance at home.</p>
+
+            <!-- Delivery Info Strip -->
+            <div class="bg-[#ecfdf5] border border-green-200 text-green-800 py-3 px-6 rounded-xl text-center mb-6 font-sans text-xs md:text-sm font-bold tracking-widest uppercase shadow-sm max-w-md mx-auto flex items-center justify-center gap-2">
+                🚚 Delivery in 3–5 days <span class="mx-1 md:mx-2 opacity-50">|</span> <span class="material-symbols-outlined text-sm md:text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span> All India Shipping
+            </div>
+
+            <!-- Elevated Shipping & Urgency Info -->
+            <div class="flex flex-col items-center gap-3 bg-red-50/80 border border-red-200 text-[#252824] px-6 py-5 rounded-3xl text-[11px] md:text-xs font-bold uppercase tracking-widest mb-10 shadow-sm max-w-md mx-auto relative overflow-hidden text-center">
+                <div class="relative z-10 flex items-center justify-center gap-2 text-red-700 w-full mb-1">
+                    <span class="material-symbols-outlined text-base md:text-lg" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                    <span>High demand today — Limited stock available <br class="md:hidden" /><span class="opacity-80 text-[10px] md:text-xs md:ml-1 lowercase tracking-normal">(Restock Friday)</span></span>
+                </div>
+                
+                <div class="w-4/5 h-[1px] bg-red-200/50 mb-1"></div>
+                
+                <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 text-text-main opacity-90 w-full">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px]">local_shipping</span> 120+ orders shipped today</span>
+                    <span class="hidden sm:block opacity-30">|</span>
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[14px]">schedule</span> Dispatch within 24 hrs</span>
+                </div>
+            </div>
+            
+            <div id="orderForm" class="bg-surface p-8 md:p-12 rounded-[2rem] shadow-xl border border-secondary/10 space-y-6">
+                <div class="text-center font-serif text-xl text-primary mb-4">
+                  Selected: <span id="selectedPack">3 Bottles - ₹1199</span>
+                </div>
+                <!-- User's Integrated Form Elements -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="font-sans text-xs tracking-widest font-bold uppercase text-text-main" for="name">Full Name</label>
+                        <input id="name" required class="w-full px-5 py-3.5 bg-background border border-secondary/30 focus:border-primary focus:ring-0 rounded-lg font-body transition-all" placeholder="Your full name" type="text" />
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-sans text-xs tracking-widest font-bold uppercase text-text-main" for="phone">Phone Number</label>
+                        <input id="phone" required class="w-full px-5 py-3.5 bg-background border border-secondary/30 focus:border-primary focus:ring-0 rounded-lg font-body transition-all" placeholder="10-digit mobile number" type="tel" />
+                    </div>
+                </div>
+                
+                <div class="space-y-2">
+                    <label class="font-sans text-xs tracking-widest font-bold uppercase text-text-main" for="address">Delivery Address</label>
+                    <input id="address" required class="w-full px-5 py-3.5 bg-background border border-secondary/30 focus:border-primary focus:ring-0 rounded-lg font-body transition-all" placeholder="House no, Street, Landmark" type="text" />
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="font-sans text-xs tracking-widest font-bold uppercase text-text-main" for="city">City</label>
+                        <input id="city" required class="w-full px-5 py-3.5 bg-background border border-secondary/30 focus:border-primary focus:ring-0 rounded-lg font-body transition-all" placeholder="Your city" type="text" />
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-sans text-xs tracking-widest font-bold uppercase text-text-main" for="pin">Pincode</label>
+                        <input id="pin" required pattern="[0-9]{6}" class="w-full px-5 py-3.5 bg-background border border-secondary/30 focus:border-primary focus:ring-0 rounded-lg font-body transition-all" placeholder="6-digit pincode" type="text" />
+                    </div>
+                </div>
+
+                <div class="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                    <div class="relative w-full">
+                        <button onclick="orderCOD()" class="w-full py-4 text-sm tracking-widest uppercase font-semibold font-sans rounded-lg shadow-md bg-[#252824] hover:bg-[#111] text-white transition-colors" type="button">
+                            Cash on Delivery
+                        </button>
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-100 text-yellow-800 text-[10px] sm:text-xs font-bold px-3 py-0.5 rounded-full border border-yellow-200 whitespace-nowrap shadow-sm">+ ₹40 COD Fee</span>
+                    </div>
+                    <button onclick="orderUPI()" class="w-full btn-green py-4 text-sm tracking-widest uppercase font-semibold font-sans rounded-lg shadow-md flex justify-center items-center gap-2" type="button">
+                        Pay via UPI
+                    </button>
+                </div>
+                
+                <div class="flex items-center justify-center gap-6 pt-4 text-[10px] sm:text-xs font-bold font-sans text-text-light uppercase tracking-widest opacity-80">
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">lock</span> 128-bit Encryption</span>
+                    <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">eco</span> WhatsApp Updates</span>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-xs text-green-700 mt-3">
+                    ✔ Try for 7 days. Not satisfied? We’ll assist you.
+                    </p>
+                </div>
+
+                <div class="text-center text-xs text-text-light mt-4">
+                ✔ Secure Checkout  
+                ✔ No Spam  
+                ✔ Trusted by 1200+ customers
+                </div>
+
+                <!-- User's Logic Script -->
+                <script>
+                    let price = 1199;
+                    let qty = 3;
+
+                    // Automatically update price & qty when a user clicks a pricing tier
+                    function setSelectedPackage(selectedQty, selectedPrice) {
+                        qty = selectedQty;
+                        price = selectedPrice;
+
+                        document.getElementById("selectedPack").innerText =
+                            `${qty} Bottle(s) - ₹${price}`;
+
+                        document.querySelector(".sticky-price").innerText = `₹${price}`;
+
+                        document.getElementById('order').scrollIntoView({behavior: 'smooth'});
+                    }
+
+                    function getOrderIntro() {
+                        let lang = localStorage.getItem("lang") || "en";
+                        let messages = {
+                          en: "I want to order Sugar-Care Sanjivany",
+                          hi: "मुझे Sugar-Care Sanjivany ऑर्डर करना है",
+                          bn: "আমি Sugar-Care Sanjivany অর্ডার করতে চাই",
+                          mr: "मला Sugar-Care Sanjivany ऑर्डर करायचे आहे",
+                          te: "నేను Sugar-Care Sanjivany ఆర్డర్ చేయాలనుకుంటున్నాను",
+                          ta: "நான் Sugar-Care Sanjivany ஆர்டர் செய்ய விரும்புகிறேன்"
+                        };
+                        return messages[lang];
+                    }
+
+                    // COD → WhatsApp
+                    function orderCOD() {
+                        let name = document.getElementById("name").value.trim();
+                        let phone = document.getElementById("phone").value.trim();
+                        let address = document.getElementById("address").value.trim();
+                        let city = document.getElementById("city").value.trim();
+                        let pin = document.getElementById("pin").value.trim();
+
+                        if(!name || !phone || !address || !city || !pin){
+                            alert("Please fill all details");
+                            return;
+                        }
+
+                        let codFee = 40;
+                        let totalAmount = price + codFee;
+                        let intro = getOrderIntro();
+                        let msg = `${intro}\n\nOrder Details:\nProduct: Sugar-Care Sanjivany\nPack: ${qty} Bottle(s)\nAmount: ₹${price} + ₹${codFee} (COD Fee) = ₹${totalAmount}\nPayment: Cash on Delivery\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}, ${city} - ${pin}`;
+                        
+                        window.open(`https://wa.me/918013818905?text=${encodeURIComponent(msg)}`,'_blank');
+                    }
+
+                    // UPI → Open payment app
+                    function orderUPI() {
+                        let name = document.getElementById("name").value.trim();
+                        let phone = document.getElementById("phone").value.trim();
+                        let address = document.getElementById("address").value.trim();
+                        let city = document.getElementById("city").value.trim();
+                        let pin = document.getElementById("pin").value.trim();
+
+                        if(!name || !phone || !address || !city || !pin){
+                            alert("Please fill all details before payment");
+                            return;
+                        }
+
+                        // Open UPI app
+                        window.location.href = `upi://pay?pa=sam.ahmed017-1@oksbi&pn=Sugar-Care%20Sanjivany&am=${price}&cu=INR`;
+
+                        // Optional: send details to WhatsApp after 2 sec
+                        setTimeout(()=>{
+                            let intro = getOrderIntro();
+                            let msg = `${intro}\n\nOrder Details:\nProduct: Sugar-Care Sanjivany\nPack: ${qty} Bottle(s)\nAmount: ₹${price}\nPayment: UPI\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}, ${city} - ${pin}`;
+                            window.open(`https://wa.me/918013818905?text=${encodeURIComponent(msg)}`,'_blank');
+                        }, 2000);
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section with Meta-Safe Links -->
+    <footer class="bg-[#1a1c19] text-[#eceadd] py-12 pb-24 md:pb-12 relative z-10 border-t border-[#333]">
+        <div class="max-w-[1200px] mx-auto px-6 text-center md:text-left grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <span class="font-serif text-2xl tracking-widest uppercase block mb-2 text-white">Sugar-Care Sanjivany</span>
+                <p class="font-body text-xs opacity-60 max-w-sm mx-auto md:mx-0 leading-relaxed mt-3">Premium herbal wellness formulated for physiological harmony and balance. 100% natural.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-center md:justify-end gap-6 font-sans text-[10px] tracking-widest uppercase font-bold text-white/50">
+                <a href="javascript:void(0)" onclick="openModal('privacyModal')" class="hover:text-primary transition-colors">Privacy Policy</a>
+                <span class="hidden md:block opacity-30">|</span>
+                <a href="javascript:void(0)" onclick="openModal('termsModal')" class="hover:text-primary transition-colors">Terms & Conditions</a>
+                <span class="hidden md:block opacity-30">|</span>
+                <a href="javascript:void(0)" onclick="openModal('refundModal')" class="hover:text-primary transition-colors">Refund Policy</a>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-white/10 font-sans text-[9px] tracking-widest text-white/30 uppercase">
+            © 2026 Sugar-Care Sanjivany. All rights reserved. <br/>This product is not intended to diagnose, treat, cure, or prevent any disease.
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <a class="fixed bottom-24 md:bottom-8 right-8 z-50 group font-sans" href="https://wa.me/918013818905">
+        <div class="relative bg-primary text-white p-4 rounded-full shadow-[0_10px_20px_rgba(107,128,84,0.4)] flex items-center justify-center hover:-translate-y-1 active:scale-95 transition-all duration-300">
+            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+            <span class="absolute right-full mr-4 bg-surface text-primary border border-secondary/30 text-xs font-bold py-2 px-4 rounded-xl opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all whitespace-nowrap shadow-lg whitespace-nowrap min-w-max">Chat with AI Assistant</span>
+        </div>
+    </a>
+
+    <!-- Sticky Bottom Buy Now Bar (Mobile focus) -->
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-secondary/20 p-4 z-50 flex items-center justify-between shadow-[0_-10px_30px_rgba(0,0,0,0.08)] md:hidden">
+        <div class="flex flex-col">
+            <span class="text-[10px] text-text-light font-sans uppercase tracking-widest font-bold">Total Price (3 Bottles)</span>
+            <span class="sticky-price text-xl font-serif font-bold text-primary leading-none mt-1">₹1199</span>
+        </div>
+        <button class="btn-green px-8 py-3 rounded-lg text-xs tracking-widest uppercase font-bold font-sans shadow-md" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
+            BUY NOW
+        </button>
+    </div>
+
+    <!-- (Ambient script removed) -->
+    
+    <!-- Policy Modals -->
+    
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal('privacyModal')"></div>
+        <div class="relative bg-white text-text-main w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl p-8 md:p-12 shadow-2xl mx-auto transform scale-95 transition-transform duration-300" id="privacyModalContent">
+            <button onclick="closeModal('privacyModal')" class="absolute top-6 right-6 text-text-light hover:text-text-main transition-colors">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            <h2 class="font-serif text-3xl font-bold mb-6 text-primary-dark">Privacy Policy</h2>
+            <div class="space-y-4 font-body text-sm md:text-base text-text-light leading-relaxed">
+                <p>At Sugar-Care Sanjivany, we respect your privacy and are committed to protecting your personal information.</p>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">1. Information We Collect</h4>
+                <p>We may collect the following details when you place an order:</p>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Full Name</li>
+                    <li>Phone Number</li>
+                    <li>Delivery Address</li>
+                    <li>City & Pincode</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">2. How We Use Your Information</h4>
+                <p>Your information is used only to:</p>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Process and deliver your order</li>
+                    <li>Contact you for order confirmation and updates</li>
+                    <li>Provide customer support</li>
+                </ul>
+                <p>We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">3. Payment Information</h4>
+                <p>For Cash on Delivery (COD), no payment details are stored.<br>For UPI payments, transactions are handled securely via your UPI app. We do not store any banking details.</p>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">4. Data Security</h4>
+                <p>We take reasonable measures to protect your information from unauthorized access or misuse.</p>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">5. Communication</h4>
+                <p>By placing an order, you agree to receive:</p>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Order confirmation messages</li>
+                    <li>Delivery updates (via SMS/WhatsApp)</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">6. Your Consent</h4>
+                <p>By using our website, you consent to our Privacy Policy.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal('termsModal')"></div>
+        <div class="relative bg-white text-text-main w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl p-8 md:p-12 shadow-2xl mx-auto transform scale-95 transition-transform duration-300" id="termsModalContent">
+            <button onclick="closeModal('termsModal')" class="absolute top-6 right-6 text-text-light hover:text-text-main transition-colors">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            <h2 class="font-serif text-3xl font-bold mb-6 text-primary-dark">Terms & Conditions</h2>
+            <div class="space-y-4 font-body text-sm md:text-base text-text-light leading-relaxed">
+                <p>By using this website, you agree to the following terms:</p>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">1. Product Information</h4>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Our product is a herbal wellness supplement.</li>
+                    <li>It is not intended to diagnose, treat, cure, or prevent any disease.</li>
+                    <li>Results may vary from person to person.</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">2. Orders & Confirmation</h4>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Orders are confirmed via phone or WhatsApp.</li>
+                    <li>We reserve the right to cancel any order due to incorrect details or unavailability.</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">3. Pricing</h4>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>All prices are listed in INR (₹).</li>
+                    <li>Prices may change without prior notice.</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">4. Shipping</h4>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Delivery usually takes 3–5 working days across India.</li>
+                    <li>Delays may occur due to unforeseen circumstances.</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">5. User Responsibility</h4>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>You agree to provide accurate details for delivery.</li>
+                    <li>We are not responsible for failed deliveries due to incorrect information.</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">6. Limitation of Liability</h4>
+                <p>We are not liable for:</p>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Misuse of the product</li>
+                    <li>Individual health outcomes</li>
+                    <li>Delays caused by third-party logistics</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Policy Modal -->
+    <div id="refundModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal('refundModal')"></div>
+        <div class="relative bg-white text-text-main w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl p-8 md:p-12 shadow-2xl mx-auto transform scale-95 transition-transform duration-300" id="refundModalContent">
+            <button onclick="closeModal('refundModal')" class="absolute top-6 right-6 text-text-light hover:text-text-main transition-colors">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            <h2 class="font-serif text-3xl font-bold mb-6 text-primary-dark">Refund & Return Policy</h2>
+            <div class="space-y-4 font-body text-sm md:text-base text-text-light leading-relaxed">
+                <p>We aim to provide a smooth experience for all customers.</p>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">1. Order Cancellation</h4>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Orders can be cancelled before dispatch.</li>
+                    <li>Once shipped, cancellation is not possible.</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">2. Returns</h4>
+                <p>We accept returns only if:</p>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>The product is damaged during delivery</li>
+                    <li>The wrong product was delivered</li>
+                </ul>
+                <p>You must contact us within 24 hours of delivery with proof (photo/video).</p>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">3. Refunds</h4>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Approved refunds will be processed within 5–7 working days</li>
+                    <li>Refunds are issued via UPI or bank transfer</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">4. Non-Returnable Cases</h4>
+                <p>We do not accept returns for:</p>
+                <ul class="list-disc pl-5 opacity-80">
+                    <li>Opened or used products</li>
+                    <li>Change of mind</li>
+                </ul>
+                <h4 class="font-bold text-text-main font-sans text-xs tracking-widest uppercase mt-6 mb-2">5. COD Charges</h4>
+                <p>COD handling charges (if applicable) are non-refundable.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Scripts -->
+    <script>
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById(id + 'Content');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Trigger animation
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById(id + 'Content');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            // Hide after animation finishes
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+    </script>
+
+    <!-- AI Assistant Widget -->
+    <div id="ai-chat" style="position:fixed;bottom:90px;right:20px;width:300px;background:#fff;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.25);font-family:sans-serif;overflow:hidden;z-index:9999;display:none;flex-direction:column;border:1px solid #dcdac6;">
+        <!-- Header -->
+        <div style="background:#6B8054;color:#fff;padding:15px;font-weight:bold;display:flex;justify-content:space-between;align-items:center;">
+            <span>🌿 Sugar-Care Assistant</span>
+            <span onclick="document.getElementById('ai-chat').style.display='none'" style="cursor:pointer;opacity:0.8;font-size:18px;">✕</span>
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chat-box" style="height:300px;overflow-y:auto;padding:15px;font-size:13px;display:flex;flex-direction:column;gap:12px;background:#fdfcf8;">
+            <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid #e1e7da;box-shadow:0 2px 4px rgba(0,0,0,0.02);align-self:flex-start;max-width:85%;">
+                <b style="color:#4a5c3a;">Assistant</b><br/> Welcome to Sugar-Care Sanjivany 🌿<br>Right now I can help you with product details, pricing, delivery times, or COD orders!
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div style="display:flex;border-top:1px solid #eee;background:#fff;">
+            <input id="chat-input" type="text" placeholder="e.g. Is COD available?..." style="flex:1;padding:15px;border:none;outline:none;font-size:13px;" onkeypress="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()" style="padding:15px 20px;background:#6B8054;color:#fff;border:none;font-weight:bold;cursor:pointer;">Send</button>
+        </div>
+    </div>
+
+    <!-- Tie the existing floating button to toggle the AI chat -->
+    <script>
+        const fab = document.querySelector('a[href="https://wa.me/918013818905"]');
+        if (fab) {
+            fab.onclick = function(e) {
+                e.preventDefault();
+                const chat = document.getElementById('ai-chat');
+                if (chat.style.display === 'none' || chat.style.display === '') {
+                    chat.style.display = 'flex';
+                } else {
+                    chat.style.display = 'none';
+                }
+            };
+        }
+
+        // Virtual Assistant Brain connected to Node.js backend
+        async function sendMessage(){
+            let input = document.getElementById("chat-input");
+            let msg = input.value.trim();
+            if(!msg) return;
+
+            let chatBox = document.getElementById("chat-box");
+
+            // Show user message (Styled)
+            chatBox.innerHTML += `
+                <div style="background:#6B8054;color:#fff;padding:12px;border-radius:12px;align-self:flex-end;max-width:85%;box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                    <b>You:</b> ${msg}
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+            input.value = "";
+
+            // Typing Indicator
+            let typingId = 'typing-' + Date.now();
+            chatBox.innerHTML += `
+                <div id="${typingId}" style="background:#fff;padding:12px;border-radius:12px;border:1px solid #e1e7da;box-shadow:0 2px 4px rgba(0,0,0,0.02);align-self:flex-start;max-width:85%;margin-top:2px;">
+                    <b style="color:#4a5c3a;">Assistant:</b><br/> <i style="opacity:0.6;">Typing...</i>
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                let apiUrl = (window.location.hostname === "localhost" || window.location.protocol === "file:") 
+                    ? "http://localhost:3000/api/chat" 
+                    : "/api/chat";
+                let res = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ message: msg })
+                });
+
+                let data = await res.json();
+                
+                // Replace typing indicator with actual reply
+                let typingElement = document.getElementById(typingId);
+                if(typingElement) {
+                    typingElement.outerHTML = `
+                        <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid #e1e7da;box-shadow:0 2px 4px rgba(0,0,0,0.02);align-self:flex-start;max-width:85%;margin-top:2px;">
+                            <b style="color:#4a5c3a;">Assistant:</b><br/> ${data.reply}
+                        </div>
+                    `;
+                }
+            } catch (err) {
+                // Handle missing server gracefully
+                let typingElement = document.getElementById(typingId);
+                if(typingElement) {
+                    typingElement.outerHTML = `
+                        <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid #e1e7da;box-shadow:0 2px 4px rgba(0,0,0,0.02);align-self:flex-start;max-width:85%;margin-top:2px;color:#d32f2f;">
+                            <b style="color:#4a5c3a;">Assistant:</b><br/> Connection error. Ensure Node server is running on port 3000.
+                        </div>
+                    `;
+                }
+            }
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en', 
+          includedLanguages: 'hi,bn,mr,te,ta,en'
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+      /* Clean up the Google Translate widget styling */
+      .goog-te-gadget { font-family: sans-serif !important; font-size: 0 !important; color: transparent !important; }
+      .goog-te-gadget .goog-te-combo { margin: 4px 8px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; padding: 2px; color: #000; }
+      .goog-logo-link { display: none !important; }
+      .goog-te-gadget span { display: none !important; }
+      body { top: 0 !important; }
+      .skiptranslate iframe { display: none !important; }
+    </style>
+
+    <!-- Social Proof Notification -->
+    <div id="social-proof-toast" class="fixed bottom-24 md:bottom-8 left-4 z-[90] bg-white border border-secondary/20 shadow-lg rounded-xl p-3 flex items-center gap-3 transform translate-y-[200%] opacity-0 transition-all duration-700 max-w-[280px]">
+        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-green-700 text-xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+        </div>
+        <div>
+            <p class="font-sans text-[10px] font-bold text-text-main leading-tight"><span id="sp-name">Rahul</span> from <span id="sp-city">Mumbai</span></p>
+            <p class="font-body text-[10px] text-text-light leading-tight mt-0.5">Purchased <span id="sp-qty">3</span> Bottles <br><span class="text-green-600 font-bold" id="sp-time">2 mins ago</span></p>
+        </div>
+    </div>
+
+    <!-- Exit-Intent Modal -->
+    <div id="exitIntentModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal('exitIntentModal')"></div>
+        <div class="relative bg-white text-text-main w-full max-w-md rounded-3xl p-8 md:p-10 shadow-2xl mx-auto transform scale-95 transition-transform duration-300 text-center" id="exitIntentModalContent">
+            <button onclick="closeModal('exitIntentModal')" class="absolute top-4 right-4 text-text-light hover:text-text-main transition-colors">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <span class="material-symbols-outlined text-red-500 text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+            <h2 class="font-serif text-2xl md:text-3xl font-bold mb-2 text-primary-dark uppercase tracking-widest">Wait! Don't Miss Out</h2>
+            <p class="font-body text-sm text-text-light mb-6">Before you go, unlock <span class="text-red-600 font-bold">FREE SHIPPING</span> and an <span class="text-green-600 font-bold">Extra 5% OFF</span> on your order today.</p>
+            <button class="w-full btn-green py-3 text-sm tracking-widest uppercase font-semibold font-sans rounded-lg shadow-md mb-3" onclick="closeModal('exitIntentModal'); document.getElementById('order').scrollIntoView({behavior: 'smooth'})">
+                CLAIM MY DISCOUNT
+            </button>
+            <p class="font-sans text-[10px] text-text-light uppercase tracking-widest cursor-pointer opacity-70 hover:opacity-100 transition-opacity" onclick="closeModal('exitIntentModal')">No thanks, I'll pay full price</p>
+        </div>
+    </div>
+
+    <!-- Conversion Optimization Scripts -->
+    <script>
+        // 1. Social Proof Nudge Logic
+        const spNames = ["Rahul", "Amit", "Priya", "Sneha", "Vikram", "Anjali", "Ramesh", "Sunita", "Deepak", "Kavita"];
+        const spCities = ["Mumbai", "Delhi", "Bengaluru", "Pune", "Hyderabad", "Chennai", "Ahmedabad", "Surat", "Jaipur", "Lucknow"];
+        const spTimes = ["Just now", "2 mins ago", "5 mins ago", "12 mins ago", "18 mins ago"];
+        const spQtys = [2, 3, 3, 3, 1, 3, 2];
+
+        function showSocialProof() {
+            const toast = document.getElementById('social-proof-toast');
+            if(!toast) return;
+
+            // Randomize data
+            document.getElementById('sp-name').innerText = spNames[Math.floor(Math.random() * spNames.length)];
+            document.getElementById('sp-city').innerText = spCities[Math.floor(Math.random() * spCities.length)];
+            document.getElementById('sp-time').innerText = spTimes[Math.floor(Math.random() * spTimes.length)];
+            document.getElementById('sp-qty').innerText = spQtys[Math.floor(Math.random() * spQtys.length)];
+
+            // Slide in
+            toast.classList.remove('translate-y-[200%]', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Slide out after 5 seconds
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-[200%]', 'opacity-0');
+            }, 5000);
+        }
+
+        // Trigger every 28 seconds
+        setTimeout(() => {
+            showSocialProof();
+            setInterval(showSocialProof, 28000);
+        }, 8000);
+
+        // 2. Exit-Intent Popup Logic
+        let exitIntentTriggered = false;
+        document.addEventListener('mouseleave', (e) => {
+            // Check if mouse left from the top of the window
+            if (e.clientY < 10 && e.movementY < 0 && !exitIntentTriggered) {
+                exitIntentTriggered = true;
+                openModal('exitIntentModal');
+            }
+        });
+    </script>
+</body>
+</html>
