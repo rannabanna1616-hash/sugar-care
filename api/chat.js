@@ -21,7 +21,7 @@ export const handler = async (event, context) => {
 
         const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
         const model = genAI.getGenerativeModel({
-            model: "gemini-1.5-flash",
+            model: "gemini-flash-latest",
             systemInstruction: `You are an AI Wellness Assistant for Sugar-Care Sanjivany.
 - No medical claims
 - No disease treatment

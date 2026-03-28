@@ -1296,8 +1296,8 @@
         }
 
         // AI Assistant — calls Gemini API directly from browser
-        const GEMINI_KEY = 'AIzaSyDfyHP8jmasGQFlVozle_UQsITlpYrtEsQ';
-        const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`;
+        const GEMINI_KEY = 'AIzaSyDozzR5U6Mn13g_byLB2eLQUPE37S3DCEw';
+        const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_KEY}`;
         const SYSTEM_PROMPT = 'You are an AI Wellness Assistant for Sugar-Care Sanjivany. No medical claims. No disease treatment. Always say wellness support. Keep answers short (2-3 sentences). Encourage order gently. Say results may vary.';
 
         async function sendMessage(){
@@ -1333,7 +1333,17 @@
                     })
                 });
                 let data = await res.json();
-                let reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not process that. Please try again.';
+
+                let reply;
+                if (data?.error) {
+                    if (data.error.code === 429) {
+                        reply = '🙏 The assistant is currently busy. Please try again in a minute!';
+                    } else {
+                        reply = 'Sorry, something went wrong. Please try again later.';
+                    }
+                } else {
+                    reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not process that. Please try again.';
+                }
 
                 let typingElement = document.getElementById(typingId);
                 if(typingElement) {
