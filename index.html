@@ -219,7 +219,7 @@
             </div>
 
             <div class="w-full flex justify-center mb-16">
-                <button class="btn-green px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-bold font-sans shadow-xl hover:-translate-y-1 transition-transform" onclick="document.getElementById('ingredients').scrollIntoView({behavior: 'smooth'})">
+                <button class="btn-green px-10 py-4 rounded-lg text-sm tracking-widest uppercase font-bold font-sans shadow-xl hover:-translate-y-1 transition-transform" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
                     EXPLORE THE SANJIVANY
                 </button>
             </div>
@@ -1285,8 +1285,9 @@
             chatBox.scrollTop = chatBox.scrollHeight;
 
             try {
-                let apiUrl = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") 
-                    ? "http://localhost:3000/api/chat" 
+                // If on local, use local endpoint, else use relative /api/chat
+                let apiUrl = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") 
+                    ? "http://localhost:8888/.netlify/functions/chat" // Netlify Dev default port
                     : "/api/chat";
                 let res = await fetch(apiUrl, {
                     method: "POST",
@@ -1313,7 +1314,7 @@
                 if(typingElement) {
                     typingElement.outerHTML = `
                         <div style="background:#fff;padding:12px;border-radius:12px;border:1px solid #e1e7da;box-shadow:0 2px 4px rgba(0,0,0,0.02);align-self:flex-start;max-width:85%;margin-top:2px;color:#d32f2f;">
-                            <b style="color:#4a5c3a;">Assistant:</b><br/> Connection error. Ensure Node server is running on port 3000.
+                            <b style="color:#4a5c3a;">Assistant:</b><br/> Connection error. If testing locally, ensure you are running 'netlify dev' or check the console for details.
                         </div>
                     `;
                 }
